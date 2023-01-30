@@ -1,0 +1,26 @@
+version: '3.8'
+services:
+  front:
+    build: 
+      context: .
+      target: client
+    ports:
+      - 8080:8080
+    command: npm run serve
+  back:
+    build:
+      context: .
+      target: server
+    volumes:
+      - maven-repo:/root/.m2
+    command: bash
+    tty: true
+  db:
+    image: mariadb
+    environment:
+      - MARIADB_ROOT_PASSWORD=root
+    ports:
+      - 3306:3306
+
+volumes:
+  maven-repo:
