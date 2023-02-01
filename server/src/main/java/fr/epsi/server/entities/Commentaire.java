@@ -1,8 +1,6 @@
 package fr.epsi.server.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToOne;
+import jakarta.persistence.*;
 
 import javax.swing.*;
 import java.io.File;
@@ -10,6 +8,7 @@ import java.io.File;
 @Entity
 public class Commentaire {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String messgae;
     // Maybe un set d'image aussi

@@ -9,6 +9,7 @@ import java.util.Set;
 @Entity
 public class Utilisateur {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nom;
     private String prenom;
