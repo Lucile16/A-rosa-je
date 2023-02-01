@@ -17,5 +17,6 @@ services:
     image: mariadb
     environment:
       - MARIADB_ROOT_PASSWORD=root
+      - MARIADB_DATABASE=arosaje
     ports:
       - 3306:3306
