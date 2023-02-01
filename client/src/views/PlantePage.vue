@@ -12,7 +12,7 @@ export default {
   },
   data() {
     return {
-      plante: {},
+      plante: {}
     };
   },
   created: function () {
@@ -23,7 +23,7 @@ export default {
       try {
         const response = await axios.get("http://localhost:8080/plantes");
         console.log(response.data._embedded.plantes);
-        this.plante = response.data._embedded.plantes[2];
+        this.plante = response.data._embedded.plantes[this.$route.params.id];
         //console.log(this.plante.data)
         console.log("ok");
         // console.log(self.commits[0].html_url);
