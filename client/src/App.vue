@@ -1,61 +1,30 @@
 <template>
-  <AnnonceItem />
-  <a href="#/">Liste des annonces</a> | <a href="#/plantepage{}">Plante</a> |
-  <a href="#/non-existent-path">Broken Link</a>
-  <component :is="currentView" />
+  <nav>
+    <router-link to="/">Home</router-link> |
+    <router-link to="/plante/1">Plante</router-link>
+  </nav>
+  <router-view />
 </template>
-
-<script>
-import "./assets/css/style.css";
-import PlantePage from "./views/PlantePage.vue";
-import ListeAnnonces from "./views/ListeAnnonces.vue";
-
-export default {
-  name: "App",
-  components: {
-    PlantePage,
-    ListeAnnonces,
-  },
-};
-</script>
-
-<script>
-import PlantePage from "./views/PlantePage.vue";
-import ListeAnnonces from "./views/ListeAnnonces.vue";
-
-const routes = {
-  "/": ListeAnnonces,
-  "/about": About,
-};
-
-export default {
-  data() {
-    return {
-      currentPath: window.location.hash,
-    };
-  },
-  computed: {
-    currentView() {
-      return routes[this.currentPath.slice(1) || "/"] || NotFound;
-    },
-  },
-  mounted() {
-    window.addEventListener("hashchange", () => {
-      this.currentPath = window.location.hash;
-    });
-  },
-};
-</script>
 
 <style>
 #app {
+  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: var(--color-primary);
+  color: #2c3e50;
 }
 
-body {
-  margin: 0;
+nav {
+  padding: 30px;
+}
+
+nav a {
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+nav a.router-link-exact-active {
+  color: #42b983;
 }
 </style>

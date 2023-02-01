@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import "./assets/css/style.css";
+import "../assets/css/style.css";
 import AnnonceItem from "../components/AnnonceItem.vue";
 
 export default {

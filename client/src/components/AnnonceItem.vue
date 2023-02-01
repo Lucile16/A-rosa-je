@@ -6,7 +6,7 @@
         <div class="row g-4">
           <div class="col-md-6">
             <img
-              src="../assets/logo.png"
+              src="../assets/img/logo.png"
               class="img-fluid rounded-start"
               alt="image_plante_annonce"
             />
@@ -23,9 +23,9 @@
 
     <h3>Liste des plantes</h3>
     <div class="d-flex justify-content-evenly">
-      <img src="../assets/logo.png" alt="image_plante" />
-      <img src="../assets/logo.png" alt="image_plante" />
-      <img src="../assets/logo.png" alt="image_plante" />
+      <img src="../assets/img/logo.png" alt="image_plante" />
+      <img src="../assets/img/logo.png" alt="image_plante" />
+      <img src="../assets/img/logo.png" alt="image_plante" />
     </div>
 
     <p class="mt-5">
