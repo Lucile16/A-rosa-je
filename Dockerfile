@@ -14,9 +14,8 @@ RUN npm install
 ################################################
 FROM maven:3.8.7-openjdk-18-slim as server
 
-RUN mkdir /usr/src/server
-
 ENV workdir=/usr/src/server
+RUN mkdir ${workdir}
 WORKDIR ${workdir}
 
 COPY ./server .
