@@ -11,10 +11,10 @@ services:
     build:
       context: .
       target: server
+    depends_on:
+      - db
     volumes:
       - maven-repo:/root/.m2
-    command: bash
-    tty: true
   db:
     image: mariadb
     environment:
