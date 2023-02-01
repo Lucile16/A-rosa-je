@@ -1,26 +1,29 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Welcome to Your Vue.js App" />
+  <img alt="Vue logo" src="./assets/img/logo.png" />
+  <!-- ici on met le composant -->
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import "./assets/css/style.css";
+// import des composants
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    // c'est ici que l'on met le nom du composant importé depuis le script
   },
 };
 </script>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: var(--color-primary);
+}
+
+body {
+  margin: 0;
 }
 </style>
