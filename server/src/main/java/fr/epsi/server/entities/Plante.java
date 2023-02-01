@@ -1,8 +1,6 @@
 package fr.epsi.server.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Id;
-import jakarta.persistence.ManyToMany;
+import jakarta.persistence.*;
 
 import javax.swing.*;
 import java.io.File;
@@ -11,6 +9,7 @@ import java.util.Set;
 @Entity
 public class Plante {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nom;
     private File photo;
@@ -23,6 +22,22 @@ public class Plante {
     private Set<Annonce> annonces;
 
     public Plante() {
+    }
+
+    public Plante(String nom, File photo) {
+        this.nom = nom;
+        this.photo = photo;
+    }
+
+    public Plante(String nom, File photo, String dimension, String exposition, String arrosage, String famille, String description, Set<Annonce> annonces) {
+        this.nom = nom;
+        this.photo = photo;
+        this.dimension = dimension;
+        this.exposition = exposition;
+        this.arrosage = arrosage;
+        this.famille = famille;
+        this.description = description;
+        this.annonces = annonces;
     }
 
     public Integer getId() {
