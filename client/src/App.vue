@@ -1,16 +1,15 @@
 <template>
-  <img alt="Vue logo" src="./assets/img/logo.png" />
-  <!-- ici on met le composant -->
+  <AnnonceItem />
 </template>
 
 <script>
 import "./assets/css/style.css";
-// import des composants
+import AnnonceItem from "./components/AnnonceItem.vue";
 
 export default {
   name: "App",
   components: {
-    // c'est ici que l'on met le nom du composant importé depuis le script
+    AnnonceItem,
   },
 };
 </script>
