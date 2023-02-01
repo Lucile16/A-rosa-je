@@ -13,14 +13,9 @@ services:
       target: server
     depends_on:
       - db
-    volumes:
-      - maven-repo:/root/.m2
   db:
     image: mariadb
     environment:
       - MARIADB_ROOT_PASSWORD=root
     ports:
       - 3306:3306
-
-volumes:
-  maven-repo:
