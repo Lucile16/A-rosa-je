@@ -12,6 +12,7 @@
 
 <script>
 import AnnonceCardComponent from "../components/AnnonceCardComponent.vue";
+import axios from "axios";
 
 export default {
   name: "ListeAnnonces",
@@ -32,7 +33,21 @@ export default {
       },
     };
   },
-};
+  created() {
+        this.fetchAnnonces();
+    },
+    methods: {
+      async fetchAnnonces() {
+        try {
+            const response = await axios.get('http://localhost:8080/annonces');
+            console.log(response.data._embedded.annonces);
+            this.annonces = response.data._embedded.annonces;
+        } catch (error) {
+            console.error(error);
+        }
+        }
+    }
+  };
 </script>
 
 <style scoped>
