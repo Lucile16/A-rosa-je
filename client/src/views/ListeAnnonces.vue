@@ -1,31 +1,47 @@
 <template>
-  <div>
-    <h1>Liste des annonces</h1>
-    <AnnonceComponent />
+  <h1>Liste des annonces</h1>
+  <div class="container">
+    <AnnonceCardComponent
+      v-for="a in annonces"
+      :key="a.id"
+      :title="a.title"
+      :description="a.description"
+    />
   </div>
 </template>
 
 <script>
-import "../assets/css/style.css";
-import AnnonceComponent from "../components/AnnonceComponent.vue";
+import AnnonceCardComponent from "../components/AnnonceCardComponent.vue";
 
 export default {
   name: "ListeAnnonces",
   components: {
-    AnnonceComponent,
+    AnnonceCardComponent,
+  },
+  data() {
+    return {
+      annonces: {
+        1: {
+          title: "ceci est un titre",
+          description: "ceci est une description",
+        },
+        2: {
+          title: "ceci est un titre2",
+          description: "ceci est une description",
+        },
+      },
+    };
   },
 };
 </script>
 
-<style>
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: var(--color-primary);
-}
-
-body {
-  margin: 0;
+<style scoped>
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 20px;
+  gap: var(--gap);
 }
 </style>
