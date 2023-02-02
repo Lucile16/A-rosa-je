@@ -1,11 +1,12 @@
 /* Custom properties */
 
 :root {
-  --color-primary: #389bff;
+  --color-primary: #0668ca;
   --color-primary-dark: #3c4a6f;
-  --color-secondary: #41b883;
+  --color-secondary: #035412;
   --color-complementary: #ff1616;
   --color-font: #35495e;
+  --color-font-light: #f7f7f7;
   --color-shadow: #888f98;
   --color-border: #35495e;
   --color-background: #dce8f9;

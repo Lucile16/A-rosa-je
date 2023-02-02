@@ -21,12 +21,11 @@ export default {
   methods: {
     fetchAnnonce: async function () {
       try {
-        const response = await axios.get("http://localhost:8080/annonces");
-        console.log(
-          response.data._embedded.annonces[this.$route.params.id - 1]
+        const response = await axios.get(
+          "http://localhost:8080/annonces/" + this.$route.params.id
         );
-        this.annonce =
-          response.data._embedded.annonces[this.$route.params.id - 1];
+        console.log(response.data);
+        this.annonce = response.data;
         // console.log("ok");
         // console.log(self.commits[0].html_url);
       } catch (error) {

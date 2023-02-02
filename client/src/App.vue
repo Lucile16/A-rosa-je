@@ -2,7 +2,7 @@
   <nav>
     <router-link to="/">Home</router-link> |
     <router-link to="/plante/1">Plante</router-link> |
-    <router-link to="/annonce/1">Annonce</router-link>
+    <router-link to="/annonce/1">Annonce</router-link> |
     <router-link to="/creer">Creer</router-link>
   </nav>
   <router-view />
