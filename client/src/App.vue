@@ -1,6 +1,7 @@
 <template>
   <nav>
     <router-link to="/">Home</router-link> |
+    <router-link to="/creer">Creer</router-link>
     <router-link to="/plante/1">Plante</router-link>
   </nav>
   <router-view />

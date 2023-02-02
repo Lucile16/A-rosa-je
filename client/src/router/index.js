@@ -1,6 +1,7 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import ListeAnnonces from "../views/ListeAnnonces.vue";
 import DetailsPlante from "../views/DetailsPlante";
+import CreerAnnonce from "../views/CreerAnnonce.vue";
 
 const routes = [
   {
@@ -13,6 +14,11 @@ const routes = [
     name: "plante",
     component: DetailsPlante,
   },
+  {
+    path: "/creer",
+    name: "creerAnnonce",
+    component: CreerAnnonce,
+  }
 ];
 
 const router = createRouter({
