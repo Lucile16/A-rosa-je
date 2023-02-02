@@ -5,6 +5,13 @@
         Titre :
         <input v-model="annonce.titre" type="text" />
       </label>
+      <div>
+        <label>Importer une image :</label>
+        <input type="file" />
+      </div>
+      <div>
+        <label>Prendre une photo :</label>
+      </div>
       <label>
         Description:
         <textarea v-model="annonce.description"></textarea>
