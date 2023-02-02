@@ -1,5 +1,5 @@
 <template>
-  <div class="card" style="width: 18rem">
+  <div class="card m-4" style="width: 18rem">
     <img src="../assets/img/logo.png" class="card-img-top" alt="..." />
     <div class="card-body">
       <h5 class="card-title">{{ annonce.titre }}</h5>

@@ -1,11 +1,15 @@
 <template>
   <h1>Liste des annonces</h1>
-  <div class="container">
+  <div class="d-flex">
     <div v-if="!annonces.length">
       <p>Il n'y a aucune annonce de disponible actuellement</p>
     </div>
-    <div v-else>
-      <AnnonceCardComponent v-for="a in annonces" :key="a.id" :annonce="a" />
+    <div class="row justify-content-center m-2" v-else>
+      <AnnonceCardComponent
+        v-for="a in annonces"
+        :key="a.id"
+        :annonce="a"
+      />
     </div>
   </div>
 </template>
@@ -40,14 +44,3 @@ export default {
   },
 };
 </script>
-
-<style scoped>
-.container {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  padding: 20px;
-  gap: var(--gap);
-}
-</style>
