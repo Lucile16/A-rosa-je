@@ -17,24 +17,22 @@ public class Annonce{
     private String titre;
     private String description;
     // Maybe un set, stocker en file, ça sera une piste d'amelioration
-    private File image;
-    @ManyToMany
+    private String image;
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             joinColumns = @JoinColumn(name = "ID_ANNONCE", referencedColumnName = "ID"),
             inverseJoinColumns = @JoinColumn(name = "ID_PLANTE", referencedColumnName = "ID")
     )
     private Set<Plante> plantes;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL)
     private Utilisateur proprietaire;
 
     @OneToMany(mappedBy = "annonce")
     private Set<Commentaire> commentaires;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "ID_GARDIEN")
     private Utilisateur gardien;
-
-    //Pb one to one pour les gardiens alors que déjà One to Many sur le meme, maybe forcer un nom
     @Embedded
     private Adresse adresse;
 
@@ -46,6 +44,34 @@ public class Annonce{
         this.etat = etat;
         this.titre = titre;
         this.description = description;
+    }
+
+    public Annonce(String etat, String titre, String description, String image, Set<Plante> plantes, Utilisateur proprietaire, Set<Commentaire> commentaires, Utilisateur gardien, Adresse adresse) {
+        this.etat = etat;
+        this.titre = titre;
+        this.description = description;
+        this.image = image;
+        this.plantes = plantes;
+        this.proprietaire = proprietaire;
+        this.commentaires = commentaires;
+        this.gardien = gardien;
+        this.adresse = adresse;
+    }
+
+    public Annonce(String etat, String titre, String description, String image, Utilisateur proprietaire, Utilisateur gardien, Adresse adresse) {
+        this.etat = etat;
+        this.titre = titre;
+        this.description = description;
+        this.image = image;
+        this.proprietaire = proprietaire;
+        this.gardien = gardien;
+        this.adresse = adresse;
+    }
+
+    public Annonce(String titre, Set<Plante> plantes, Utilisateur proprietaire) {
+        this.titre = titre;
+        this.plantes = plantes;
+        this.proprietaire = proprietaire;
     }
 
     public Integer getId() {
@@ -80,11 +106,11 @@ public class Annonce{
         this.description = description;
     }
 
-    public File getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(File image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

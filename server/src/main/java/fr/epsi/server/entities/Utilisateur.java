@@ -23,6 +23,22 @@ public class Utilisateur {
     public Utilisateur() {
     }
 
+    public Utilisateur(String nom, String prenom, String email, String motDePasse, Set<Annonce> annonces, Annonce annonce) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.motDePasse = motDePasse;
+        this.annonces = annonces;
+        this.annonce = annonce;
+    }
+
+    public Utilisateur(String nom, String prenom, String email, String motDePasse) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.email = email;
+        this.motDePasse = motDePasse;
+    }
+
     public Integer getId() {
         return id;
     }

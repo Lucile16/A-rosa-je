@@ -1,5 +1,8 @@
 package fr.epsi.server.entities;
 
+import jakarta.persistence.Embeddable;
+
+@Embeddable
 public class Adresse {
     private Integer numero;
     private String rue;
@@ -7,6 +10,13 @@ public class Adresse {
     private Integer codePostal;
 
     public Adresse() {
+    }
+
+    public Adresse(Integer numero, String rue, String ville, Integer codePostal) {
+        this.numero = numero;
+        this.rue = rue;
+        this.ville = ville;
+        this.codePostal = codePostal;
     }
 
     public Integer getNumero() {

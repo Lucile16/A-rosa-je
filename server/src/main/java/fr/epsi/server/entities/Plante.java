@@ -12,24 +12,24 @@ public class Plante {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String nom;
-    private File photo;
+    private String photo;
     private String dimension;
     private String exposition;
     private String arrosage;
     private String famille;
     private String description;
-    @ManyToMany(mappedBy = "plantes") //cascade = CascadeType.ALL
+    @ManyToMany(mappedBy = "plantes")
     private Set<Annonce> annonces;
 
     public Plante() {
     }
 
-    public Plante(String nom, File photo) {
+    public Plante(String nom, String photo) {
         this.nom = nom;
         this.photo = photo;
     }
 
-    public Plante(String nom, File photo, String dimension, String exposition, String arrosage, String famille, String description, Set<Annonce> annonces) {
+    public Plante(String nom, String photo, String dimension, String exposition, String arrosage, String famille, String description, Set<Annonce> annonces) {
         this.nom = nom;
         this.photo = photo;
         this.dimension = dimension;
@@ -38,6 +38,15 @@ public class Plante {
         this.famille = famille;
         this.description = description;
         this.annonces = annonces;
+    }
+
+    public Plante(String nom, String photo, String dimension, String exposition, String arrosage, String famille) {
+        this.nom = nom;
+        this.photo = photo;
+        this.dimension = dimension;
+        this.exposition = exposition;
+        this.arrosage = arrosage;
+        this.famille = famille;
     }
 
     public Integer getId() {
@@ -56,11 +65,11 @@ public class Plante {
         this.nom = nom;
     }
 
-    public File getPhoto() {
+    public String getPhoto() {
         return photo;
     }
 
-    public void setPhoto(File photo) {
+    public void setPhoto(String photo) {
         this.photo = photo;
     }
 
