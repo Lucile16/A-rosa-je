@@ -18,12 +18,6 @@ export default {
 </script>
 
 <style>
-#app {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: var(--color-primary);
-}
 
 body {
   margin: 0;
