@@ -13,7 +13,9 @@
   --font-weight: 700;
   --font-family: Avenir, Helvetica, Arial, sans-serif;
   --border-radius: 10px;
-  --gap: 10px;
+  --border-2: 2px solid var(--color-border);
+  --border-3: 3px solid var(--color-border);
+  --gap: 20px;
 }
 
 /* Hide un-compiled mustache bindings until the Vue instance is ready */

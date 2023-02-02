@@ -3,17 +3,18 @@
     <router-link to="/">Home</router-link> |
     <router-link to="/plante/1">Plante</router-link> |
     <router-link to="/annonce/1">Annonce</router-link>
+    <router-link to="/creer">Creer</router-link>
   </nav>
   <router-view />
 </template>
 
 <style>
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: var(--font-family);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: var(--color-primary);
 }
 
 nav {

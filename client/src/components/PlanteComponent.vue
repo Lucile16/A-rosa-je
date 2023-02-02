@@ -1,6 +1,6 @@
 <template>
   <div class="container text-center">
-    <h1>Nom de la plante</h1>
+    <h1>{{ plante.nom }}</h1>
     <div class="container">
       <div class="row">
         <div class="col">
@@ -10,13 +10,11 @@
           />
         </div>
         <div class="col">
-          <div>Type de la plante</div>
-          <div>Dimension de la plante</div>
-          <div>Exposition de la plante</div>
-          <div>Arrosage de la plante</div>
-          <div>Famille de la plante</div>
-          <div>Description de la plante</div>
-          <div>{{ plante.nom }}</div>
+          <div>Famille de la plante : {{ plante.famille }}</div>
+          <div>Dimension de la plante : {{ plante.dimension }}</div>
+          <div>Exposition de la plante : {{ plante.exposition }}</div>
+          <div>Arrosage de la plante : {{ plante.arrosage }}</div>
+          <div>Description de la plante : {{ plante.description }}</div>
         </div>
       </div>
     </div>
