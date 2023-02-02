@@ -18,7 +18,7 @@ const routes = [
     path: "/creer",
     name: "creerAnnonce",
     component: CreerAnnonce,
-  }
+  },
 ];
 
 const router = createRouter({

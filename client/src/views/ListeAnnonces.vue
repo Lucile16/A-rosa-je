@@ -1,18 +1,14 @@
 <template>
   <h1>Liste des annonces</h1>
-  <div class="container">
-    <div v-if="!annonces.length">
-      <p>Il n'y a aucune annonce de disponible actuellement</p>
-    </div>
-    <div v-else>
-      <AnnonceCardComponent
-        v-for="a in annonces"
-        :key="a.id"
-        :title="a.title"
-        :description="a.description"
-      />
-    </div>
+  <div class="container" v-if="annonces.length">
+    <AnnonceCardComponent
+      v-for="a in annonces"
+      :key="a.id"
+      :title="a.title"
+      :description="a.description"
+    />
   </div>
+  <div v-else>Il n'y a aucune annonce.</div>
 </template>
 
 <script>
@@ -26,16 +22,7 @@ export default {
   },
   data() {
     return {
-      annonces: {
-        1: {
-          title: "ceci est un titre",
-          description: "ceci est une description",
-        },
-        2: {
-          title: "ceci est un titre2",
-          description: "ceci est une description",
-        },
-      },
+      annonces: [],
     };
   },
   created() {

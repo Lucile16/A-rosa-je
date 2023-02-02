@@ -1,10 +1,9 @@
 <template>
-    <h1>Hello, FormulaireAnnonceComponent</h1>
+  <h1>Hello, FormulaireAnnonceComponent</h1>
 </template>
-  
-  <script>
-  export default {
-    name: "FormulaireAnnonceComponent"
-  };
-  </script>
-  
+
+<script>
+export default {
+  name: "FormulaireAnnonceComponent",
+};
+</script>
