@@ -1,5 +1,5 @@
 <template>
-  <AnnonceComponent :annonce="annonce" />
+  <AnnonceComponent :annonce="annonce" :plants="plants"/>
 </template>
 
 <script>
@@ -13,14 +13,17 @@ export default {
   data() {
     return {
       annonce: {},
+      plants: null
     };
   },
-  created: function () {
-    this.fetchAnnonce();
+  created: async function () {
+    await this.fetchAnnonce();
+    await this.fetchPlants();
   },
   methods: {
     fetchAnnonce: async function () {
       try {
+        console.log("annonce")
         const response = await axios.get(
           "http://localhost:8080/annonces/" + this.$route.params.id
         );
@@ -30,6 +33,16 @@ export default {
         // console.log(self.commits[0].html_url);
       } catch (error) {
         console.log(error);
+      }
+    },
+    fetchPlants: async function () {
+      try {
+        console.log("plants")
+        const response = await axios.get(this.annonce._links.plantes.href);
+        console.log(response.data);
+        this.plants = response.data._embedded.plantes;
+      } catch (error) {
+        console.error(error);
       }
     },
   },
