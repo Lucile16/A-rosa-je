@@ -32,12 +32,14 @@ export default {
 }
 .card .goto {
   background-color: var(--color-primary);
+  color: var(--color-white);
   margin-block: 10px;
 }
 
 .card .goto:hover,
 .card .goto:focus {
   background-color: var(--color-secondary);
+  color: var(--color-white);
   border: var(--border-3);
 }
 </style>
