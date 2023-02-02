@@ -6,13 +6,13 @@
 import PlanteCard from "../components/PlanteComponent.vue";
 import axios from "axios";
 export default {
-  name: "PlantePage",
+  name: "DetailsPlante",
   components: {
     PlanteCard,
   },
   data() {
     return {
-      plante: {}
+      plante: {},
     };
   },
   created: function () {

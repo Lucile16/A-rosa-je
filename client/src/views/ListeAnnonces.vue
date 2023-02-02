@@ -1,18 +1,18 @@
 <template>
   <div>
     <h1>Liste des annonces</h1>
-    <AnnonceItem />
+    <AnnonceComponent />
   </div>
 </template>
 
 <script>
 import "../assets/css/style.css";
-import AnnonceItem from "../components/AnnonceItem.vue";
+import AnnonceComponent from "../components/AnnonceComponent.vue";
 
 export default {
   name: "ListeAnnonces",
   components: {
-    AnnonceItem,
+    AnnonceComponent,
   },
 };
 </script>

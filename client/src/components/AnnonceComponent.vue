@@ -1,5 +1,5 @@
 <template>
-  <div class="annonce_item">
+  <div class="annonce_component">
     <h1>Titre</h1>
     <div class="d-flex justify-content-center mb-5">
       <div class="card" style="max-width: 540px; border-color: white">
@@ -39,7 +39,7 @@
 // import axios from 'axios';
 
 export default {
-  name: "AnnonceItem",
+  name: "AnnonceComponent",
   // components: {
   //     PlanteItem
   // },

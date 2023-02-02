@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import ListeAnnonces from "../views/ListeAnnonces.vue";
-import PlantePage from "../views/PlantePage";
+import DetailsPlante from "../views/DetailsPlante";
 
 const routes = [
   {
@@ -11,8 +11,8 @@ const routes = [
   {
     path: "/plante/:id",
     name: "plante",
-    component: PlantePage,
-  }
+    component: DetailsPlante,
+  },
 ];
 
 const router = createRouter({
