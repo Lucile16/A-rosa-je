@@ -14,7 +14,9 @@ public class Annonce{
     private Integer id;
     //TODO Enum
     private String etat;
+    @Column(nullable = false)
     private String titre;
+    @Column(nullable = false)
     private String description;
     // Maybe un set, stocker en file, ça sera une piste d'amelioration
     private String image;
