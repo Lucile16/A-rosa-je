@@ -11,6 +11,13 @@
       </div>
       <div>
         <label>Prendre une photo :</label>
+        <PhotoCapture
+          v-model="annonce.imageBase64"
+          captureBtnContent="Camera"
+          cancelBtnContent="Retake"
+          doneBtnContent="Use Image"
+          @input="done"
+        />
       </div>
       <label>
         Description:
@@ -37,11 +44,17 @@
 
 <script>
 import axios from "axios";
+import { PhotoCapture } from "vue-media-recorder";
+
 export default {
   name: "CreerAnnonce",
+  components: {
+    PhotoCapture,
+  },
   data() {
     return {
       annonce: {
+        imageBase64: [],
         titre: null,
         description: null,
         adresse: {
