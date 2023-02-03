@@ -12,13 +12,6 @@
       >
         <div class="row g-4">
           <div class="col-md-6">
-<<<<<<< Updated upstream
-            <img
-              src="../assets/img/rose0.jpg"
-              class="img-fluid rounded-start"
-              alt="image_plante_annonce"
-            />
-=======
             <router-link
               :to="`/plante/${plants[0]._links.self.href.split('/')[4] - 1}`"
             >
@@ -28,7 +21,6 @@
                 alt="image_plante_annonce"
               />
             </router-link>
->>>>>>> Stashed changes
           </div>
           <div class="col-md-6">
             <div class="card-body">
@@ -40,20 +32,14 @@
       </div>
     </div>
 
-    <h3 class="mb-4">Liste des plantes</h3>
+    <h3 class="mb-4">Catalogue des botanistes</h3>
     <div class="d-flex justify-content-evenly">
-<<<<<<< Updated upstream
-      <a href="#"><img src="../assets/img/rose1.jpg" alt="image_rose1" /></a>
-      <a href="#"><img src="../assets/img/rose2.jpg" alt="image_rose2" /></a>
-      <a href="#"><img src="../assets/img/rose3.jpg" alt="image_rose3" /></a>
-=======
       <router-link
         :to="`/plante/${plants[0]._links.self.href.split('/')[4] - 1}`"
         ><img src="../assets/img/rose1.jpg" alt="image_rose1"
       /></router-link>
       <img src="../assets/img/rose2.jpg" alt="image_rose2" />
       <img src="../assets/img/rose3.jpg" alt="image_rose3" />
->>>>>>> Stashed changes
     </div>
 
     <p class="mt-4">
@@ -69,10 +55,7 @@ export default {
   name: "AnnonceComponent",
   props: {
     annonce: null,
-<<<<<<< Updated upstream
-=======
     plants: null,
->>>>>>> Stashed changes
   },
 };
 </script>

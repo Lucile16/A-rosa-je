@@ -1,9 +1,5 @@
 <template>
-<<<<<<< Updated upstream
-  <AnnonceComponent :annonce="annonce" />
-=======
   <AnnonceComponent :annonce="annonce" :plants="plants" />
->>>>>>> Stashed changes
 </template>
 
 <script>
@@ -17,22 +13,17 @@ export default {
   data() {
     return {
       annonce: {},
-<<<<<<< Updated upstream
-=======
       plants: null,
->>>>>>> Stashed changes
     };
   },
-  created: function () {
-    this.fetchAnnonce();
+  created: async function () {
+    await this.fetchAnnonce();
+    await this.fetchPlants();
   },
   methods: {
     fetchAnnonce: async function () {
       try {
-<<<<<<< Updated upstream
-=======
         console.log("annonce");
->>>>>>> Stashed changes
         const response = await axios.get(
           "http://localhost:8080/annonces/" + this.$route.params.id
         );
@@ -44,8 +35,6 @@ export default {
         console.log(error);
       }
     },
-<<<<<<< Updated upstream
-=======
     fetchPlants: async function () {
       try {
         console.log("plants");
@@ -56,7 +45,6 @@ export default {
         console.error(error);
       }
     },
->>>>>>> Stashed changes
   },
 };
 </script>
