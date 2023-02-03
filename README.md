@@ -34,6 +34,8 @@ To set up and run the A-Rosa-Je project, you will need to have [Docker](https://
 
 5.  Access the application in your browser at `http://localhost:8080`.
 
+6. (Optional) Populate the database with test data by launching the populate_db.sh script
+
 ## Conclusion
 
 The A-Rosa-Je project provides a platform for managing and organizing gardening services using a modern, full-stack technology stack. With the use of Vue.js, Java JPA, MariaDB, and Docker, the application is both scalable and easily deployable.
