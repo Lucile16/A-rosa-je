@@ -28,18 +28,17 @@
       </div>
 
       <div>
-        <label>Importer une image :</label>
+        <span class="input-group-text">Importer une image</span>
         <input type="file" />
       </div>
       <div>
         <label>Prendre une photo :</label>
-        <PhotoCapture
-          v-model="annonce.imageBase64"
-          captureBtnContent="Camera"
-          cancelBtnContent="Retake"
-          doneBtnContent="Use Image"
-          @input="done"
-        />
+        <camera
+          :resolution="{ width: 375, height: 812 }"
+          ref="camera"
+          autoplay
+        ></camera>
+        <button @click="snapshot">Prendre une photo</button>
       </div>
 
       <div class="mt-5 col-md-10">
@@ -152,7 +151,7 @@
   </div>
 </template>
 
-<script>
+<script lang="ts">
 //Fonction Bootstrap qui vérifie si les champs sont valides
 (function () {
   //Le mode strict lève des exceptions si erreur et exécute le code plus rapidement
@@ -177,17 +176,17 @@
 })();
 
 import axios from "axios";
-import { PhotoCapture } from "vue-media-recorder";
+import Camera from "simple-vue-camera";
+import { ref } from "vue";
 
 export default {
-  components: {
-    PhotoCapture,
-  },
   name: "CreerAnnonce",
+  components: {
+    Camera,
+  },
   data() {
     return {
       annonce: {
-        imageBase64: null,
         titre: null,
         description: null,
         adresse: {
@@ -236,5 +235,33 @@ export default {
       }
     },
   },
+  setup() {
+    // Get a reference of the component
+    const camera = ref<InstanceType<typeof Camera>>();
+
+    // Use camera reference to call functions
+    const snapshot = async () => {
+      const blob = await camera.value?.snapshot();
+
+      // To show the screenshot with an image tag, create a url
+      const url = URL.createObjectURL(blob);
+    };
+
+    // Change the camera device
+    const devices = camera.value?.devices(["videoinput"]);
+    camera.value?.changeCamera(devices[0]);
+
+    return {
+      camera,
+      snapshot,
+    };
+  },
 };
 </script>
+
+<style scoped>
+#camera-container {
+  width: 300px;
+  height: 300px;
+}
+</style>
