@@ -1,5 +1,5 @@
 <template>
-  <AnnonceComponent :annonce="annonce" :plants="plants"/>
+  <AnnonceComponent :annonce="annonce" :plants="plants" />
 </template>
 
 <script>
@@ -13,7 +13,7 @@ export default {
   data() {
     return {
       annonce: {},
-      plants: null
+      plants: null,
     };
   },
   created: async function () {
@@ -23,7 +23,7 @@ export default {
   methods: {
     fetchAnnonce: async function () {
       try {
-        console.log("annonce")
+        console.log("annonce");
         const response = await axios.get(
           "http://localhost:8080/annonces/" + this.$route.params.id
         );
@@ -37,7 +37,7 @@ export default {
     },
     fetchPlants: async function () {
       try {
-        console.log("plants")
+        console.log("plants");
         const response = await axios.get(this.annonce._links.plantes.href);
         console.log(response.data);
         this.plants = response.data._embedded.plantes;

@@ -1,15 +1,11 @@
 <template>
   <h1>Liste des annonces</h1>
-  <div class="d-flex">
-    <div v-if="!annonces.length">
+  <div class="d-flex justify-content-center">
+    <div class="row m-2" v-if="!annonces.length">
       <p>Il n'y a aucune annonce de disponible actuellement</p>
     </div>
     <div class="row justify-content-center m-2" v-else>
-      <AnnonceCardComponent
-        v-for="a in annonces"
-        :key="a.id"
-        :annonce="a"
-      />
+      <AnnonceCardComponent v-for="a in annonces" :key="a.id" :annonce="a" />
     </div>
   </div>
 </template>
