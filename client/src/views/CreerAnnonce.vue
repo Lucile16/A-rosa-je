@@ -27,18 +27,13 @@
         </div>
       </div>
 
-      <div>
-        <span class="input-group-text">Importer une image</span>
+      <div class="col-md-10">
         <input type="file" />
       </div>
-      <div>
+
+      <div class="col-md-10">
         <label>Prendre une photo :</label>
-        <camera
-          :resolution="{ width: 375, height: 812 }"
-          ref="camera"
-          autoplay
-        ></camera>
-        <button @click="snapshot">Prendre une photo</button>
+        <CameraComponent :items="annonce.items"></CameraComponent>
       </div>
 
       <div class="mt-5 col-md-10">
@@ -151,7 +146,7 @@
   </div>
 </template>
 
-<script lang="ts">
+<script>
 //Fonction Bootstrap qui vérifie si les champs sont valides
 (function () {
   //Le mode strict lève des exceptions si erreur et exécute le code plus rapidement
@@ -176,17 +171,17 @@
 })();
 
 import axios from "axios";
-import Camera from "simple-vue-camera";
-import { ref } from "vue";
+import CameraComponent from "../components/CameraComponent.vue";
 
 export default {
   name: "CreerAnnonce",
   components: {
-    Camera,
+    CameraComponent,
   },
   data() {
     return {
       annonce: {
+        items: [],
         titre: null,
         description: null,
         adresse: {
@@ -225,6 +220,7 @@ export default {
         console.error(error);
       }
     },
+
     async fetchPlants() {
       try {
         const response = await axios.get("http://localhost:8080/plantes");
@@ -235,33 +231,5 @@ export default {
       }
     },
   },
-  setup() {
-    // Get a reference of the component
-    const camera = ref<InstanceType<typeof Camera>>();
-
-    // Use camera reference to call functions
-    const snapshot = async () => {
-      const blob = await camera.value?.snapshot();
-
-      // To show the screenshot with an image tag, create a url
-      const url = URL.createObjectURL(blob);
-    };
-
-    // Change the camera device
-    const devices = camera.value?.devices(["videoinput"]);
-    camera.value?.changeCamera(devices[0]);
-
-    return {
-      camera,
-      snapshot,
-    };
-  },
 };
 </script>
-
-<style scoped>
-#camera-container {
-  width: 300px;
-  height: 300px;
-}
-</style>
