@@ -44,7 +44,7 @@
 
     <p class="mt-4">
       <small
-        ><i>Etat et createur : {{ annonce.etat }} par ?</i></small
+        ><i>Etat et créateur : {{ annonce.etat }} par ?</i></small
       >
     </p>
   </div>

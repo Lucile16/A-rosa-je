@@ -2,7 +2,7 @@
   <h1 class="text-center" style="color: var(--color-primary-dark);">Création d'une annonce</h1>
   <div v-if="!data.length">
     <div class="d-flex flex-column align-items-center">
-      <!-- Trouver comment revenir sur la page de création d'une annonce sans avoir à réactualiser la page -->
+      <!-- Trouver comment revenir sur cette page sans avoir à réactualiser la page quand on a soumis le formulaire -->
       <form class="row g-3 justify-content-center container text-center mt-2" v-on:submit.prevent="submitAnnonce" action="http://localhost:8081/#/creer" method="POST">
         <div class="col-md-10">
           <div class="input-group has-validation">
@@ -126,8 +126,6 @@
         } catch (error) {
           console.error(error);
         }
-
-        form.classList.add("was-validated");
       },
       async fetchPlants() {
         try {
@@ -141,24 +139,4 @@
         }
     }
   };
-
-  //Fonction Bootstrap qui vérifie si les champs sont valides
-    (function () {
-  //Le mode strict lève des exceptions si erreur et exécute le code plus rapidement
-  'use strict'
-  var forms = document.querySelectorAll('.needs-validation')
-
-  //Permet de convertir des objets/collections similaires à des tableaux, en un nouveau tableau
-  Array.prototype.slice.call(forms)
-      .forEach(function (form) {
-      form.addEventListener('submit', function (event) {
-          if (!form.checkValidity()) {
-            event.preventDefault()
-            event.stopPropagation()
-          }
-
-          form.classList.add('was-validated')
-      }, false)
-      })
-  })();
 </script>

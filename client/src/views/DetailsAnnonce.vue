@@ -25,7 +25,7 @@ export default {
     fetchAnnonce: async function () {
       try {
         const response = await axios.get("http://localhost:8080/annonces/" + this.$route.params.id);
-        if (response.data !== null || !response.data.length) {
+        if (response.data !== null || response.data.length) {
           this.annonce = response.data;
         }
       } catch (error) {
@@ -35,7 +35,7 @@ export default {
     fetchPlants: async function () {
       try {
         const response = await axios.get(this.annonce._links.plantes.href);
-        if (response.data._embedded.plantes !== null || !response.data._embedded.plantes.length) {
+        if (response.data._embedded.plantes !== null || response.data._embedded.plantes.length) {
           this.plants = response.data._embedded.plantes;
         }
       } catch (error) {

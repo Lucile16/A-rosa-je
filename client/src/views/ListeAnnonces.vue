@@ -31,7 +31,7 @@ export default {
     async fetchAnnonces() {
       try {
         const response = await axios.get("http://localhost:8080/annonces");
-        if (response.data._embedded.annonces !== null || !response.data._embedded.annonces.length) {
+        if (response.data._embedded.annonces !== null || response.data._embedded.annonces.length) {
           this.annonces = response.data._embedded.annonces;
         }
       } catch (error) {
