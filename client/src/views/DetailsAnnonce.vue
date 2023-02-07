@@ -5,6 +5,7 @@
 <script>
 import AnnonceComponent from "../components/AnnonceComponent.vue";
 import axios from "axios";
+
 export default {
   name: "DetailsAnnonce",
   components: {
