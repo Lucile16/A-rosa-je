@@ -23,24 +23,20 @@ export default {
   methods: {
     fetchAnnonce: async function () {
       try {
-        console.log("annonce")
-        const response = await axios.get(
-          "http://localhost:8080/annonces/" + this.$route.params.id
-        );
-        console.log(response.data);
-        this.annonce = response.data;
-        // console.log("ok");
-        // console.log(self.commits[0].html_url);
+        const response = await axios.get("http://localhost:8080/annonces/" + this.$route.params.id);
+        if (response.data !== null || !response.data.length) {
+          this.annonce = response.data;
+        }
       } catch (error) {
         console.log(error);
       }
     },
     fetchPlants: async function () {
       try {
-        console.log("plants")
         const response = await axios.get(this.annonce._links.plantes.href);
-        console.log(response.data);
-        this.plants = response.data._embedded.plantes;
+        if (response.data._embedded.plantes !== null || !response.data._embedded.plantes.length) {
+          this.plants = response.data._embedded.plantes;
+        }
       } catch (error) {
         console.error(error);
       }
