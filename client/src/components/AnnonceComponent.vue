@@ -12,13 +12,15 @@
       >
         <div class="row g-4">
           <div class="col-md-6">
-            <router-link :to="`/plante/${plants[0]._links.self.href.split('/')[4]-1}`">
+            <router-link
+              :to="`/plante/${plants[0]._links.self.href.split('/')[4] - 1}`"
+            >
               <img
                 src="../assets/img/rose0.jpg"
                 class="img-fluid rounded-start"
                 alt="image_plante_annonce"
               />
-          </router-link>
+            </router-link>
           </div>
           <div class="col-md-6">
             <div class="card-body">
@@ -32,7 +34,10 @@
 
     <h3 class="mb-4">Catalogue des botanistes</h3>
     <div class="d-flex justify-content-evenly">
-      <router-link :to="`/plante/${plants[0]._links.self.href.split('/')[4]-1}`"><img src="../assets/img/rose1.jpg" alt="image_rose1" /></router-link>
+      <router-link
+        :to="`/plante/${plants[0]._links.self.href.split('/')[4] - 1}`"
+        ><img src="../assets/img/rose1.jpg" alt="image_rose1"
+      /></router-link>
       <img src="../assets/img/rose2.jpg" alt="image_rose2" />
       <img src="../assets/img/rose3.jpg" alt="image_rose3" />
     </div>
@@ -50,8 +55,8 @@ export default {
   name: "AnnonceComponent",
   props: {
     annonce: null,
-    plants: null
-  }
+    plants: null,
+  },
 };
 </script>
 

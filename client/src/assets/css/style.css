@@ -2,21 +2,12 @@
 
 :root {
   --color-primary: #0668ca;
-  --color-primary-dark: #3c4a6f;
-  --color-secondary: #035412;
-  --color-complementary: #ff1616;
-  --color-font: #35495e;
-  --color-font-light: #f7f7f7;
-  --color-shadow: #888f98;
-  --color-border: #35495e;
+  --color-secondary: #036e16;
+  --color-light: #8d8d8d;
   --color-background: #dce8f9;
 
   --font-weight: 700;
   --font-family: Avenir, Helvetica, Arial, sans-serif;
-  --border-radius: 10px;
-  --border-2: 2px solid var(--color-border);
-  --border-3: 3px solid var(--color-border);
-  --gap: 20px;
 }
 
 /* Hide un-compiled mustache bindings until the Vue instance is ready */
@@ -33,6 +24,6 @@ html,
 body {
   font-family: var(--font-family);
   font-weight: var(--font-weight);
-  color: var(--color-font);
+  color: var(--color-primary);
   background-color: var(--color-background);
 }

@@ -1,6 +1,10 @@
 <template>
   <div class="card m-4" style="width: 18rem">
-    <img src="../assets/img/rose0.jpg" class="card-img-top" alt="..." />
+    <img
+      src="../assets/img/rose0.jpg"
+      class="card-img mt-4 img-fluid"
+      alt="image de notre annonce"
+    />
     <div class="card-body">
       <h5 class="card-title">{{ annonce.titre }}</h5>
       <p class="card-text">
@@ -46,6 +50,5 @@ export default {
 .card .goto:focus {
   background-color: var(--color-secondary);
   color: var(--color-font-light);
-  border: var(--border-3);
 }
 </style>

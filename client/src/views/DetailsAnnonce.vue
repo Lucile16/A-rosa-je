@@ -1,10 +1,11 @@
 <template>
-  <AnnonceComponent :annonce="annonce" :plants="plants"/>
+  <AnnonceComponent :annonce="annonce" :plants="plants" />
 </template>
 
 <script>
 import AnnonceComponent from "../components/AnnonceComponent.vue";
 import axios from "axios";
+
 export default {
   name: "DetailsAnnonce",
   components: {
@@ -13,7 +14,7 @@ export default {
   data() {
     return {
       annonce: {},
-      plants: null
+      plants: null,
     };
   },
   created: async function () {

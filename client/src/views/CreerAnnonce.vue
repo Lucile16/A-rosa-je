@@ -126,6 +126,8 @@
         } catch (error) {
           console.error(error);
         }
+
+        form.classList.add("was-validated");
       },
       async fetchPlants() {
         try {
