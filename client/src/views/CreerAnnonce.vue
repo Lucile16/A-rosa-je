@@ -2,6 +2,7 @@
   <h1 class="text-center" style="color: var(--color-primary-dark);">Création d'une annonce</h1>
   <div v-if="!data.length">
     <div class="d-flex flex-column align-items-center">
+      <!-- Trouver comment revenir sur la page de création d'une annonce sans avoir à réactualiser la page -->
       <form class="row g-3 justify-content-center container text-center mt-2" v-on:submit.prevent="submitAnnonce" action="http://localhost:8081/#/creer" method="POST">
         <div class="col-md-10">
           <div class="input-group has-validation">
