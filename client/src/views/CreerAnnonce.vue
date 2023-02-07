@@ -33,7 +33,10 @@
 
       <div class="col-md-10">
         <label>Prendre une photo :</label>
-        <CameraComponent :items="annonce.items"></CameraComponent>
+        <CameraComponent
+          class="border-primary p-2 w-100"
+          :items="annonce.items"
+        ></CameraComponent>
       </div>
 
       <div class="mt-5 col-md-10">
@@ -233,3 +236,5 @@ export default {
   },
 };
 </script>
+
+<style scoped></style>
