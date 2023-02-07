@@ -1,7 +1,15 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/creer">Creer</router-link>
+  <nav class="navbar navbar-expand-lg bg-light">
+    <div class="container-fluid">
+      <router-link class="navbar-brand" to="/">Home</router-link>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <router-link class="nav-link active" to="/creer">Creer</router-link>
+        </li>
+      </ul>
+    </div>
   </nav>
   <router-view />
 </template>
