@@ -203,24 +203,28 @@ export default {
   },
   methods: {
     async submitAnnonce() {
-      try {
-        const response = await axios.post(
-          "http://localhost:8080/annonces",
-          this.annonce
-        );
-        console.log(response.data);
-        const response2 = await axios.put(
-          response.data._links.self.href + "/plantes",
-          this.selectedPlant._links.self.href,
-          {
-            headers: {
-              "Content-Type": "text/uri-list",
-            },
-          }
-        );
-        console.log(response2.data);
-      } catch (error) {
-        console.error(error);
+      if (this.selectedPlant) {
+        try {
+          const response = await axios.post(
+            "http://localhost:8080/annonces",
+            this.annonce
+          );
+          console.log(response.data);
+          const response2 = await axios.put(
+            response.data._links.self.href + "/plantes",
+            this.selectedPlant._links.self.href,
+            {
+              headers: {
+                "Content-Type": "text/uri-list",
+              },
+            }
+          );
+          console.log(response2.data);
+        } catch (error) {
+          console.error(error);
+        }
+      } else {
+        console.log("No selected plant found");
       }
     },
 
@@ -236,5 +240,3 @@ export default {
   },
 };
 </script>
-
-<style scoped></style>
