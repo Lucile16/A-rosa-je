@@ -21,6 +21,7 @@ public class Annonce{
     // Maybe un set, stocker en file, ça sera une piste d'amelioration
     private String image;
     @ManyToMany(cascade = CascadeType.ALL)
+    @Column(nullable = false)
     @JoinTable(
             joinColumns = @JoinColumn(name = "ID_ANNONCE", referencedColumnName = "ID"),
             inverseJoinColumns = @JoinColumn(name = "ID_PLANTE", referencedColumnName = "ID")
@@ -36,6 +37,7 @@ public class Annonce{
     @JoinColumn(name = "ID_GARDIEN")
     private Utilisateur gardien;
     @Embedded
+    @Column(nullable = false)
     private Adresse adresse;
 
 

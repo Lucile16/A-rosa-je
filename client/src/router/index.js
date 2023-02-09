@@ -3,6 +3,7 @@ import ListeAnnonces from "../views/ListeAnnonces.vue";
 import DetailsPlante from "../views/DetailsPlante";
 import DetailsAnnonce from "../views/DetailsAnnonce";
 import CreerAnnonce from "../views/CreerAnnonce.vue";
+import NotFound from "../views/NotFound.vue";
 
 const routes = [
   {
@@ -24,6 +25,11 @@ const routes = [
     path: "/creer",
     name: "creerAnnonce",
     component: CreerAnnonce,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "Default",
+    component: NotFound,
   },
 ];
 
