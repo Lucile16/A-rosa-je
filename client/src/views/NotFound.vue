@@ -1,7 +1,11 @@
 <template>
-  <div>
-    <h1>404 Page non trouvée</h1>
-    <p>La page que vous recherchez n'existe pas.</p>
+  <h1>404 Page non trouvée</h1>
+  <div class="d-flex justify-content-center">
+    <div class="alert alert-primary fade show w-auto mt-4 d-inline-flex">
+      <div>
+        La page que vous cherchez n'existe pas !
+      </div>
+    </div>
   </div>
 </template>
 

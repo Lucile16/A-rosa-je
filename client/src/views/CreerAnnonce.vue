@@ -1,5 +1,5 @@
 <template>
-  <h1 class="text-center" style="color: var(--color-primary-dark);">Création d'une annonce</h1>
+  <h1>Création d'une annonce</h1>
   <div v-if="!data.length">
     <div class="d-flex flex-column align-items-center">
       <!-- Trouver comment revenir sur cette page sans avoir à réactualiser la page quand on a soumis le formulaire -->
@@ -74,7 +74,7 @@
       </div>
       <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-    <div class="card" style="border-color: var(--color-background);background-color: var(--color-background);">
+    <div class="card">
       <div class="card-body">
         <h4 class="card-title">Rappel des informations</h4>
         <p class="mt-4 card-text fw-normal"><b>Titre de l'annonce :</b> {{annonce.titre}}</p>
@@ -140,3 +140,14 @@
     }
   };
 </script>
+
+<style>
+.card {
+  border-color: var(--color-background);
+  background-color: var(--color-background);
+}
+
+.input-group-text {
+  color:var(--color-secondary);
+}
+</style>

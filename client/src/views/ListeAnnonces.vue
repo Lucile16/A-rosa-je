@@ -1,8 +1,10 @@
 <template>
   <h1>Liste des annonces</h1>
   <div class="d-flex justify-content-center">
-    <div class="row m-2" v-if="!annonces.length">
-      <p>Il n'y a aucune annonce de disponible actuellement</p>
+    <div class="alert alert-primary fade show w-auto mt-4 d-inline-flex" v-if="!annonces.length" role="alert">
+      <div>
+        Il n'y a aucune annonce disponible actuellement
+      </div>
     </div>
     <div class="row justify-content-center m-2" v-else>
       <AnnonceCardComponent v-for="a in annonces" :key="a.id" :annonce="a" />
@@ -41,3 +43,11 @@ export default {
   },
 };
 </script>
+
+<style>
+.alert-primary {
+  --bs-alert-color: var(--color-secondary)!important;
+  --bs-alert-bg: var(--color-background2)!important;
+  --bs-alert-border-color: var(--color-border)!important;
+}
+</style>

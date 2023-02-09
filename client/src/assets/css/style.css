@@ -1,13 +1,17 @@
 /* Custom properties */
 
 :root {
-  --color-primary: #0668ca;
-  --color-secondary: #036e16;
+  --color-primary: #38b6ff;
+  --color-secondary: #003756;
+  --color-shade1: #0086d3;
   --color-light: #8d8d8d;
-  --color-background: #dce8f9;
+  --color-background: #e3f5ff;
+  --color-background2: #bde8ff;
+  --color-border: #93d9ff;
 
   --font-weight: 700;
-  --font-family: Avenir, Helvetica, Arial, sans-serif;
+  --font-family: Arial;
+  --font-size-nav: 1.25rem;
 }
 
 /* Hide un-compiled mustache bindings until the Vue instance is ready */
@@ -21,9 +25,21 @@
 }
 
 html,
-body {
+body
+{
   font-family: var(--font-family);
   font-weight: var(--font-weight);
   color: var(--color-primary);
   background-color: var(--color-background);
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+  color: var(--color-secondary);
 }
