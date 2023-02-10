@@ -8,6 +8,7 @@
           <div class="input-group has-validation">
             <span class="input-group-text">Nom de l'annonce</span>
             <input type="text" class="form-control" v-model="annonce.titre" maxlength="90" required>
+            <div class="invalid-feedback">Veuillez remplir ce champs</div>
           </div>
         </div>
 
@@ -57,10 +58,10 @@
             <option selected disabled value="">Choisissez une plante...</option>
             <option v-for="plante in plantes" :key="plante.id" :value="plante">{{ plante.nom }}</option>
           </select>
-          <div class="invalid-feedback">Veuillez sélectionner un niveau</div>
+          <div class="invalid-feedback">Veuillez sélectionner une plante</div>
         </div>
 
-        <div class="mt-5">
+        <div class="mt-5 mb-5">
             <button class="btn btn-success me-5" type="submit">Valider</button> <!--@click.prevent="submitAnnonce"-->
             <button class="btn btn-danger" type="reset">Annuler</button>
         </div>
