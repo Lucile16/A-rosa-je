@@ -24,7 +24,9 @@ export default {
   methods: {
     fetchAnnonce: async function () {
       try {
-        const response = await axios.get("http://localhost:8080/annonces/" + this.$route.params.id);
+        const response = await axios.get(
+          "http://localhost:8080/annonces/" + this.$route.params.id
+        );
         if (response.data !== null || response.data.length) {
           this.annonce = response.data;
         }
@@ -35,7 +37,10 @@ export default {
     fetchPlantes: async function () {
       try {
         const response = await axios.get(this.annonce._links.plantes.href);
-        if (response.data._embedded.plantes !== null || response.data._embedded.plantes.length) {
+        if (
+          response.data._embedded.plantes !== null ||
+          response.data._embedded.plantes.length
+        ) {
           this.plantes = response.data._embedded.plantes;
         }
       } catch (error) {

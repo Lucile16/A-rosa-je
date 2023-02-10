@@ -13,7 +13,9 @@
         <div class="row g-4">
           <div class="col-md-6">
             <router-link
-              :to="`/plantes/${this.plantes[0]._links.self.href.split('/')[4] - 1}`"
+              :to="`/plantes/${
+                this.plantes[0]._links.self.href.split('/')[4] - 1
+              }`"
             >
               <img
                 src="../assets/img/Fleur.png"

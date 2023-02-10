@@ -25,8 +25,7 @@
 }
 
 html,
-body
-{
+body {
   font-family: var(--font-family);
   font-weight: var(--font-weight);
   color: var(--color-primary);
@@ -39,7 +38,6 @@ h2,
 h3,
 h4,
 h5,
-h6
-{
+h6 {
   color: var(--color-secondary);
 }

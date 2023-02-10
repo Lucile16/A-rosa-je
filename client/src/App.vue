@@ -1,7 +1,5 @@
 <template>
-  <nav
-    class="navbar navbar-expand-lg border-bottom border-2 bg-gradient mb-4"
-  >
+  <nav class="navbar navbar-expand-lg border-bottom border-2 bg-gradient mb-4">
     <div class="container-fluid navbar-brand mx-4">
       <img
         src="./assets/img/Logo.png"
@@ -24,7 +22,7 @@
     </div>
     <div class="collapse navbar-collapse me-4" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <img src="./assets/img/Fleur.png" height="50"/>
+        <img src="./assets/img/Fleur.png" height="50" />
         <li class="nav-item">
           <router-link class="nav-link" to="/">Home</router-link>
         </li>
@@ -47,7 +45,7 @@
 }
 
 nav {
-  background-color:var(--color-primary);
+  background-color: var(--color-primary);
   border-color: var(--color-shade1);
 }
 

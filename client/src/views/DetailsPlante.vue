@@ -22,7 +22,10 @@ export default {
     fetchPlante: async function () {
       try {
         const response = await axios.get("http://localhost:8080/plantes");
-        if (response.data._embedded.plantes !== null || response.data._embedded.plantes.length) {
+        if (
+          response.data._embedded.plantes !== null ||
+          response.data._embedded.plantes.length
+        ) {
           this.plante = response.data._embedded.plantes[this.$route.params.id];
         }
       } catch (error) {
