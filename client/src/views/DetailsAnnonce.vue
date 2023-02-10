@@ -1,5 +1,5 @@
 <template>
-  <AnnonceComponent :annonce="annonce" :plants="plants" />
+  <AnnonceComponent :annonce="annonce" :plantes="plantes" />
 </template>
 
 <script>
@@ -14,12 +14,12 @@ export default {
   data() {
     return {
       annonce: {},
-      plants: null,
+      plantes: null,
     };
   },
   created: async function () {
     await this.fetchAnnonce();
-    await this.fetchPlants();
+    await this.fetchPlantes();
   },
   methods: {
     fetchAnnonce: async function () {
@@ -32,11 +32,11 @@ export default {
         console.log(error);
       }
     },
-    fetchPlants: async function () {
+    fetchPlantes: async function () {
       try {
         const response = await axios.get(this.annonce._links.plantes.href);
         if (response.data._embedded.plantes !== null || response.data._embedded.plantes.length) {
-          this.plants = response.data._embedded.plantes;
+          this.plantes = response.data._embedded.plantes;
         }
       } catch (error) {
         console.error(error);

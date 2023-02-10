@@ -13,7 +13,7 @@
         <div class="row g-4">
           <div class="col-md-6">
             <router-link
-              :to="`/plante/${plants[0]._links.self.href.split('/')[4] - 1}`"
+              :to="`/plantes/${this.plantes[0]._links.self.href.split('/')[4] - 1}`"
             >
               <img
                 src="../assets/img/Fleur.png"
@@ -35,7 +35,7 @@
     <h3 class="mb-4">Catalogue des botanistes</h3>
     <div class="d-flex justify-content-evenly">
       <router-link
-        :to="`/plante/${plants[0]._links.self.href.split('/')[4] - 1}`"
+        :to="`/plantes/${this.plantes[0]._links.self.href.split('/')[4] - 1}`"
         ><img src="../assets/img/rose1.jpg" alt="image_rose1"
       /></router-link>
       <img src="../assets/img/rose2.jpg" alt="image_rose2" />
@@ -55,7 +55,7 @@ export default {
   name: "AnnonceComponent",
   props: {
     annonce: null,
-    plants: null,
+    plantes: null,
   },
 };
 </script>

@@ -55,7 +55,7 @@
           <span class="input-group-text">Plante</span>
           <select class="form-select" v-model="selectedPlant" required>
             <option selected disabled value="">Choisissez une plante...</option>
-            <option v-for="plant in plants" :key="plant.id" :value="plant">{{ plant.nom }}</option>
+            <option v-for="plante in plantes" :key="plante.id" :value="plante">{{ plante.nom }}</option>
           </select>
           <div class="invalid-feedback">Veuillez sélectionner un niveau</div>
         </div>
@@ -103,13 +103,13 @@
             ville: null
           }
         },
-        plants: [],
+        plantes: [],
         selectedPlant: null,
         data : []
       };
     },
     created() {
-      this.fetchPlants();
+      this.fetchPlantes();
     },
     methods: {
       async submitAnnonce() {
@@ -127,11 +127,11 @@
           console.error(error);
         }
       },
-      async fetchPlants() {
+      async fetchPlantes() {
         try {
             const response = await axios.get('http://localhost:8080/plantes');
             if (response.data._embedded.plantes !== null || !response.data._embedded.plantes.length) {
-              this.plants = response.data._embedded.plantes;
+              this.plantes = response.data._embedded.plantes;
             }
         } catch (error) {
             console.error(error);

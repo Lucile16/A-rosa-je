@@ -1,6 +1,6 @@
 <template>
   <div class="card m-4">
-    <!-- v-bind:src="annonce.image" -->
+    <!-- Ne fonctionnne pas : v-bind:src="annonce.image" -->
     <img
       src="../assets/img/Fleur.png"
       class="card-img mt-4 img-fluid"
