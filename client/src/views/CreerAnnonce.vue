@@ -98,8 +98,6 @@
               required
             />
             <div class="invalid-feedback">Veuillez remplir ce champs</div>
-            <p class="error-cp text-danger"></p>
-            <!-- <p class="text-danger">Code postal incorrect !</p> -->
           </div>
         </div>
 
