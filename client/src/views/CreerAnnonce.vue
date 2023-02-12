@@ -19,7 +19,6 @@
               v-model="annonce.titre"
               maxlength="90"
               placeholder="Garde d'un rosier en pot"
-              onkeydown="return /[a-z]/i.test(event.key)"
               required
             />
             <div class="invalid-feedback">Veuillez remplir ce champs</div>
@@ -46,7 +45,6 @@
               v-model="annonce.description"
               rows="8"
               placeholder="A arroser 2 à 3 fois par semaine"
-              onkeydown="return /[a-z]/i.test(event.key)"
               required
             ></textarea>
             <div class="invalid-feedback">Veuillez remplir ce champs</div>
@@ -78,7 +76,6 @@
               v-model="annonce.adresse.rue"
               maxlength="90"
               placeholder="rue de la rose"
-              onkeydown="return /[a-z]/i.test(event.key)"
               required
             />
             <div class="invalid-feedback">Veuillez remplir ce champs</div>
@@ -96,7 +93,7 @@
               id="cp"
               placeholder="44000"
               required
-            />
+            /> <!-- checkCP vérifie que l'utilisateur tape un code postal valide -->
             <div class="invalid-feedback">Veuillez remplir ce champs</div>
           </div>
         </div>
@@ -112,7 +109,7 @@
               placeholder="Nantes"
               onkeydown="return /[a-z]/i.test(event.key)"
               required
-            />
+            /> <!-- onkeydown permet à l'utilisateur de taper uniquement des lettres -->
             <div class="invalid-feedback">Veuillez remplir ce champs</div>
           </div>
         </div>
