@@ -20,34 +20,22 @@ export default {
   },
   methods: {
     fetchPlante: async function () {
-      // try {
-      //   const response = await axios.get("http://localhost:8080/plantes");
-      //   if (
-      //     response.data._embedded.plantes !== null ||
-      //     response.data._embedded.plantes.length
-      //   ) {
-      //     this.plante = response.data._embedded.plantes[this.$route.params.id];
-      //   }
-      // } catch (error) {
-      //   console.log(error);
-      // }
-      axios.get('http://localhost:8080/plantes', {
-        auth: {
-          username: 'admin',
-          password: 'password'
-        }
-      })
-        .then((res) => {
-          if (
-            res.data._embedded.annonces !== null ||
-            res.data._embedded.annonces.length
-          ) {
-            this.annonces = res.data._embedded.annonces;
+      try {
+        const response = await axios.get("http://localhost:8080/plantes", {
+          auth: {
+            username: 'admin',
+            password: 'password'
           }
-        })
-        .catch((error) => {
-          console.error(error)
-        })
+        });
+        if (
+          response.data._embedded.plantes !== null ||
+          response.data._embedded.plantes.length
+        ) {
+          this.plante = response.data._embedded.plantes[this.$route.params.id];
+        }
+      } catch (error) {
+        console.log(error);
+      }
     },
   },
 };
