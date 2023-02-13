@@ -25,7 +25,7 @@ public class ServerApplication {
 
 				@Override
 				public void addCorsMappings(CorsRegistry registry) {
-					registry.addMapping("/api/**");
+					registry.addMapping("/**").allowedOrigins("http://localhost:8080");
 				}
 
 			};
