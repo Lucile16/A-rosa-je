@@ -50,9 +50,9 @@
           </div>
         </div>
 
-        <div class="mt-5 col-md-3">
+        <div class="mt-5 col-md-3" id="numero">
           <div class="input-group has-validation">
-            <span class="input-group-text">Numéro de rue*</span>
+            <span class="input-group-text">Numéro de rue/voie*</span>
             <input
               type="number"
               class="form-control"
@@ -66,7 +66,7 @@
           </div>
         </div>
 
-        <div class="mt-5 col-md-7">
+        <div class="mt-5 col-md-7" id="voie">
           <div class="input-group has-validation">
             <span class="input-group-text">Rue/Voie*</span>
             <input
@@ -81,7 +81,7 @@
           </div>
         </div>
 
-        <div class="mt-5 col-md-3">
+        <div class="mt-5 col-md-3" id="cp">
           <div class="input-group has-validation">
             <span class="input-group-text">Code postal*</span>
             <input
@@ -97,7 +97,7 @@
           </div>
         </div>
 
-        <div class="mt-5 col-md-7">
+        <div class="mt-5 col-md-7" id="ville">
           <div class="input-group has-validation">
             <span class="input-group-text">Ville*</span>
             <input
@@ -247,5 +247,24 @@ export default {
 
 .input-group-text {
   color: var(--color-secondary);
+}
+
+@media (max-width: 991.98px) {
+  #numero {
+    flex: 0 0 auto;
+    width: 42%;
+  }
+  #voie {
+    flex: 0 0 auto;
+    width: 83.33333333%;
+  }
+  #cp {
+    flex: 0 0 auto;
+    width: 42%;
+  }
+  #ville {
+    flex: 0 0 auto;
+    width: 75%;
+  }
 }
 </style>
