@@ -5,6 +5,7 @@
         src="./assets/img/Logo.png"
         width="75"
         height="50"
+        id="logo"
         class="d-inline-block align-text-top me-4"
       />
       <div class="navbar">
@@ -22,7 +23,7 @@
     </div>
     <div class="collapse navbar-collapse me-4" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <img src="./assets/img/Fleur.png" height="50" />
+        <img src="./assets/img/Fleur.png" height="50" id="fleur" alt="fleur"/>
         <li class="nav-item">
           <router-link class="nav-link" to="/">Home</router-link>
         </li>
@@ -57,5 +58,17 @@ nav {
 
 .nav-link:hover {
   text-decoration: underline;
+}
+
+@media (max-width: 991.98px) {
+  #fleur {
+    display: none;
+  }
+  img {
+    height: 8vh;
+  }
+  #logo {
+    height: 6vh;
+  }
 }
 </style>

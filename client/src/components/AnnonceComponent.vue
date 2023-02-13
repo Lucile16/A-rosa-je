@@ -35,7 +35,7 @@
     </div>
 
     <h3 class="mb-4">Catalogue des botanistes</h3>
-    <div class="d-flex justify-content-evenly">
+    <div class="d-flex justify-content-evenly" id="catalogue">
       <router-link
         :to="`/plantes/${this.plantes[0]._links.self.href.split('/')[4] - 1}`"
         ><img src="../assets/img/rose1.jpg" alt="image_rose1"
@@ -43,12 +43,6 @@
       <img src="../assets/img/rose2.jpg" alt="image_rose2" />
       <img src="../assets/img/rose3.jpg" alt="image_rose3" />
     </div>
-
-    <p class="mt-4">
-      <small
-        ><i>Etat et créateur : {{ annonce.etat }} par ?</i></small
-      >
-    </p>
   </div>
 </template>
 
@@ -63,10 +57,22 @@ export default {
 </script>
 
 <style scoped>
+.card > img {
+  width: 80%;
+  margin: 0 auto;
+}
 img {
   width: 100vw;
   height: 16vh;
   max-width: 200px;
   max-height: 150px;
+}
+@media (max-width: 540px) {
+  #catalogue {
+    display: flex!important;
+    flex-direction: column!important;
+    align-items: center;
+    margin-bottom: 50px;
+  }
 }
 </style>

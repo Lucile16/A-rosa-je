@@ -17,7 +17,7 @@
 <script>
 import AnnonceCardComponent from "../components/AnnonceCardComponent.vue";
 import axios from "axios";
-
+import swal from 'sweetalert';
 export default {
   name: "ListeAnnonces",
   components: {
@@ -54,6 +54,7 @@ export default {
           this.annonces = response.data._embedded.annonces;
         }
       } catch (error) {
+        swal("Veuillez nous excuser...", "Une erreur est survenue de notre côté", "error");
         console.error(error);
       }
     },
@@ -61,7 +62,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .alert-primary {
   --bs-alert-color: var(--color-secondary) !important;
   --bs-alert-bg: var(--color-background2) !important;

@@ -5,7 +5,7 @@
 <script>
 import AnnonceComponent from "../components/AnnonceComponent.vue";
 import axios from "axios";
-
+import swal from 'sweetalert';
 export default {
   name: "DetailsAnnonce",
   components: {
@@ -37,6 +37,7 @@ export default {
           this.annonce = response.data;
         }
       } catch (error) {
+        swal("Veuillez nous excuser...", "Une erreur est survenue de notre côté", "error");
         console.log(error);
       }
     },
@@ -55,6 +56,7 @@ export default {
           this.plantes = response.data._embedded.plantes;
         }
       } catch (error) {
+        swal("Veuillez nous excuser...", "Une erreur est survenue de notre côté", "error");
         console.error(error);
       }
     },

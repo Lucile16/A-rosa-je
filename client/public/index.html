@@ -18,7 +18,7 @@
     ></script>
     <title>A'rosa-je</title>
   </head>
-  <body class="mb-5">
+  <body>
     <noscript>
       <strong>
         Désolé, mais sans activer le JavaScript au sein du navigateur, le site
@@ -36,6 +36,9 @@
 </html>
 
 <style>
+  body {
+    margin-bottom: 4rem;
+  }
   footer {
     position: fixed;
     bottom: 0px;
@@ -43,5 +46,13 @@
     height: 42px;
     background: var(--color-secondary);
     color: white;
+  }
+  @media (max-width: 410px) {
+    body {
+      margin-bottom: 6rem!important;
+    }
+    footer {
+      height: 63px;
+    }
   }
 </style>
