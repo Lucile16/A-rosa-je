@@ -19,33 +19,69 @@ export default {
   },
   created: async function () {
     await this.fetchAnnonce();
-    await this.fetchPlantes();
+    //await this.fetchPlantes();
   },
   methods: {
     fetchAnnonce: async function () {
-      try {
-        const response = await axios.get(
-          "http://localhost:8080/annonces/" + this.$route.params.id
-        );
-        if (response.data !== null || response.data.length) {
-          this.annonce = response.data;
+      // try {
+      //   const response = await axios.get(
+      //     "http://localhost:8080/annonces/" + this.$route.params.id
+      //   );
+      //   if (response.data !== null || response.data.length) {
+      //     this.annonce = response.data;
+      //   }
+      // } catch (error) {
+      //   console.log(error);
+      // }
+      axios.get('http://localhost:8080/annonces' + '/' + this.$route.params.id, {
+        auth: {
+          username: 'admin',
+          password: 'password'
         }
-      } catch (error) {
-        console.log(error);
-      }
+      })
+        .then((res) => {
+          if (
+            res.data._embedded.annonces !== null ||
+            res.data._embedded.annonces.length
+          ) {
+            this.annonces = res.data._embedded.annonces;
+          }
+        })
+        .catch((error) => {
+          console.error(error)
+        })
     },
     fetchPlantes: async function () {
-      try {
-        const response = await axios.get(this.annonce._links.plantes.href);
-        if (
-          response.data._embedded.plantes !== null ||
-          response.data._embedded.plantes.length
-        ) {
-          this.plantes = response.data._embedded.plantes;
+      // try {
+      //   const response = await axios.get(this.annonce._links.plantes.href);
+      //   if (
+      //     response.data._embedded.plantes !== null ||
+      //     response.data._embedded.plantes.length
+      //   ) {
+      //     this.plantes = response.data._embedded.plantes;
+      //   }
+      // } catch (error) {
+      //   console.error(error);
+      // }
+      axios.get(this.annonce._links.plantes.href, {
+        auth: {
+          username: 'admin',
+          password: 'password'
         }
-      } catch (error) {
-        console.error(error);
-      }
+      })
+        .then((res) => {
+          if (
+            res.data._embedded.annonces !== null ||
+            res.data._embedded.annonces.length
+          ) {
+            this.annonces = res.data._embedded.annonces;
+          }
+        })
+        .catch((error) => {
+          console.error(error)
+        })
+
+
     },
   },
 };

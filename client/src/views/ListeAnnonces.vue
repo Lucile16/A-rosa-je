@@ -27,7 +27,8 @@ export default {
           username: 'admin',
           password: 'password'
         }
-      }
+      },
+      access_token: "YWRtaW46cGFzc3dvcmQ"
     };
   },
   created() {
@@ -48,16 +49,23 @@ export default {
         console.error(error);
       }
       */
-      axios.post("http://localhost:8080/annonces", {}, {
+      axios.get('http://localhost:8080/annonces', {
         auth: {
-          username: "admin",
-          password: "password"
+          username: 'admin',
+          password: 'password'
         }
-      }).then(function () {
-        console.log('Authenticated');
-      }).catch(function () {
-        console.log('Error on Authentication');
-      });
+      })
+        .then((res) => {
+          if (
+            res.data._embedded.annonces !== null ||
+            res.data._embedded.annonces.length
+          ) {
+            this.annonces = res.data._embedded.annonces;
+          }
+        })
+        .catch((error) => {
+          console.error(error)
+        })
     },
   },
 };
