@@ -1,6 +1,6 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import ListeAnnonces from "../views/ListeAnnonces.vue";
-import DetailsPlante from "../views/DetailsPlante/DetailsPlante.vue";
+import DetailsPlante from "../views/DetailsPlante.vue";
 import DetailsAnnonce from "../views/DetailsAnnonce.vue";
 import CreerAnnonce from "../views/CreerAnnonce.vue";
 import NotFound from "../views/NotFound.vue";
