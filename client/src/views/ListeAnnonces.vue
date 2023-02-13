@@ -50,7 +50,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .alert-primary {
   --bs-alert-color: var(--color-secondary) !important;
   --bs-alert-bg: var(--color-background2) !important;

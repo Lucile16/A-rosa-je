@@ -6,7 +6,6 @@
       <form
         class="row g-3 justify-content-center container text-center mt-2"
         v-on:submit.prevent="submitAnnonce"
-        action="http://localhost:8081/#/creer"
         method="POST"
       >
         <div class="col-md-10">
@@ -150,15 +149,15 @@
       <div class="card-body">
         <h4 class="card-title">Rappel des informations</h4>
         <p class="mt-4 card-text fw-normal">
-          <b>Titre de l'annonce :</b> {{ annonce.titre }}
+          <b>Titre de l'annonce :</b> {{ data[0].titre }}
         </p>
         <p class="mt-4 card-text fw-normal">
-          <b>Description de l'annonce :</b> {{ annonce.description }}
+          <b>Description de l'annonce :</b> {{ data[0].description }}
         </p>
         <p class="mt-4 card-text fw-normal">
-          <b>Adresse :</b> {{ annonce.adresse.numero }}
-          {{ annonce.adresse.rue }} {{ annonce.adresse.codePostal }}
-          {{ annonce.adresse.ville }}
+          <b>Adresse :</b> {{ data[0].adresse.numero }}
+          {{ data[0].adresse.rue }} {{ data[0].adresse.codePostal }}
+          {{ data[0].adresse.ville }}
         </p>
         <p class="mt-4 card-text fw-normal">
           <b>Plante :</b> {{ selectedPlant.nom }}
@@ -240,7 +239,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 .card {
   border-color: var(--color-background);
   background-color: var(--color-background);

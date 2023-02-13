@@ -63,6 +63,10 @@ export default {
 </script>
 
 <style scoped>
+.card > img {
+  width: 80%;
+  margin: 0 auto;
+}
 img {
   width: 100vw;
   height: 16vh;
