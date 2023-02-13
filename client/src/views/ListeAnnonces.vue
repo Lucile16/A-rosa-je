@@ -1,11 +1,7 @@
 <template>
   <h1>Liste des annonces</h1>
   <div class="d-flex justify-content-center">
-    <div
-      class="alert alert-primary fade show w-auto mt-4 d-inline-flex"
-      v-if="!annonces.length"
-      role="alert"
-    >
+    <div class="alert alert-primary fade show w-auto mt-4 d-inline-flex" v-if="!annonces.length" role="alert">
       <div>Il n'y a aucune annonce disponible actuellement</div>
     </div>
     <div class="row justify-content-center m-2" v-else>
@@ -26,6 +22,13 @@ export default {
   data() {
     return {
       annonces: [],
+      config: {
+        auth: {
+          username: 'admin',
+          password: 'password'
+        }
+      },
+      access_token: "YWRtaW46cGFzc3dvcmQ"
     };
   },
   created() {
@@ -33,8 +36,16 @@ export default {
   },
   methods: {
     async fetchAnnonces() {
+
       try {
-        const response = await axios.get("http://localhost:8080/annonces");
+        const response = await axios.get("http://localhost:8080/annonces",
+          {
+            auth: {
+              username: 'admin',
+              password: 'password'
+            }
+          }
+        );
         if (
           response.data._embedded.annonces !== null ||
           response.data._embedded.annonces.length

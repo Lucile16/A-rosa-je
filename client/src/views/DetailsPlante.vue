@@ -21,7 +21,12 @@ export default {
   methods: {
     fetchPlante: async function () {
       try {
-        const response = await axios.get("http://localhost:8080/plantes");
+        const response = await axios.get("http://localhost:8080/plantes", {
+          auth: {
+            username: 'admin',
+            password: 'password'
+          }
+        });
         if (
           response.data._embedded.plantes !== null ||
           response.data._embedded.plantes.length
