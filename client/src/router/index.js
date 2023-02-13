@@ -1,8 +1,9 @@
 import { createRouter, createWebHashHistory } from "vue-router";
 import ListeAnnonces from "../views/ListeAnnonces.vue";
-import DetailsPlante from "../views/DetailsPlante";
-import DetailsAnnonce from "../views/DetailsAnnonce";
+import DetailsPlante from "../views/DetailsPlante.vue";
+import DetailsAnnonce from "../views/DetailsAnnonce.vue";
 import CreerAnnonce from "../views/CreerAnnonce.vue";
+import NotFound from "../views/NotFound.vue";
 
 const routes = [
   {
@@ -11,7 +12,7 @@ const routes = [
     component: ListeAnnonces,
   },
   {
-    path: "/plante/:id",
+    path: "/plantes/:id",
     name: "plante",
     component: DetailsPlante,
   },
@@ -24,6 +25,11 @@ const routes = [
     path: "/creer",
     name: "creerAnnonce",
     component: CreerAnnonce,
+  },
+  {
+    path: "/:pathMatch(.*)*",
+    name: "Default",
+    component: NotFound,
   },
 ];
 

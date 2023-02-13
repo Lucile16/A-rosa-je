@@ -1,12 +1,17 @@
 package fr.epsi.server.entities;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Embeddable;
 
 @Embeddable
 public class Adresse {
+    @Column(nullable = false)
     private Integer numero;
+    @Column(nullable = false)
     private String rue;
+    @Column(nullable = false)
     private String ville;
+    @Column(nullable = false)
     private Integer codePostal;
 
     public Adresse() {

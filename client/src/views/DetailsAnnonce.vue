@@ -1,5 +1,5 @@
 <template>
-  <AnnonceComponent :annonce="annonce" :plants="plants" />
+  <AnnonceComponent :annonce="annonce" :plantes="plantes" />
 </template>
 
 <script>
@@ -14,34 +14,45 @@ export default {
   data() {
     return {
       annonce: {},
-      plants: null,
+      plantes: null,
     };
   },
   created: async function () {
     await this.fetchAnnonce();
-    await this.fetchPlants();
+    await this.fetchPlantes();
   },
   methods: {
     fetchAnnonce: async function () {
       try {
-        console.log("annonce");
         const response = await axios.get(
           "http://localhost:8080/annonces/" + this.$route.params.id
-        );
-        console.log(response.data);
-        this.annonce = response.data;
-        // console.log("ok");
-        // console.log(self.commits[0].html_url);
+          , {
+            auth: {
+              username: 'admin',
+              password: 'password'
+            }
+          });
+        if (response.data !== null || response.data.length) {
+          this.annonce = response.data;
+        }
       } catch (error) {
         console.log(error);
       }
     },
-    fetchPlants: async function () {
+    fetchPlantes: async function () {
       try {
-        console.log("plants");
-        const response = await axios.get(this.annonce._links.plantes.href);
-        console.log(response.data);
-        this.plants = response.data._embedded.plantes;
+        const response = await axios.get(this.annonce._links.plantes.href, {
+          auth: {
+            username: 'admin',
+            password: 'password'
+          }
+        });
+        if (
+          response.data._embedded.plantes !== null ||
+          response.data._embedded.plantes.length
+        ) {
+          this.plantes = response.data._embedded.plantes;
+        }
       } catch (error) {
         console.error(error);
       }
