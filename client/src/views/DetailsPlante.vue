@@ -23,9 +23,9 @@ export default {
       try {
         const response = await axios.get("http://localhost:8080/plantes", {
           auth: {
-            username: 'admin',
-            password: 'password'
-          }
+            username: "admin",
+            password: "password",
+          },
         });
         if (
           response.data._embedded.plantes !== null ||

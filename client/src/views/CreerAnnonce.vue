@@ -3,17 +3,27 @@
   <div v-if="!data.length">
     <div class="d-flex flex-column align-items-center">
       <!-- Trouver comment revenir sur cette page sans avoir à réactualiser la page quand on a soumis le formulaire -->
-      <form class="row g-3 justify-content-center container text-center mt-2" v-on:submit.prevent="submitAnnonce"
-        action="http://localhost:8081/#/creer" method="POST">
+      <form
+        class="row g-3 justify-content-center container text-center mt-2"
+        v-on:submit.prevent="submitAnnonce"
+        action="http://localhost:8081/#/creer"
+        method="POST"
+      >
         <div class="col-md-10">
           <div class="input-group has-validation">
             <span class="input-group-text">Nom de l'annonce</span>
-            <input type="text" class="form-control" v-model="annonce.titre" maxlength="90" required />
+            <input
+              type="text"
+              class="form-control"
+              v-model="annonce.titre"
+              maxlength="90"
+              required
+            />
             <div class="invalid-feedback">Veuillez remplir ce champs</div>
           </div>
         </div>
 
-        <!-- <div class="col-md-10">
+        <div class="col-md-10">
           <input class="form-control" type="file" id="formFile" />
         </div>
 
@@ -23,12 +33,17 @@
             class="border-primary p-2 w-100"
             :items="annonce.items"
           ></CameraComponent>
-        </div> -->
+        </div>
 
         <div class="mt-5 col-md-10">
           <div class="has-validation">
             <span class="input-group-text">Description</span>
-            <textarea class="form-control" v-model="annonce.description" rows="8" required></textarea>
+            <textarea
+              class="form-control"
+              v-model="annonce.description"
+              rows="8"
+              required
+            ></textarea>
             <div class="invalid-feedback">Veuillez remplir ce champs</div>
           </div>
         </div>
@@ -36,7 +51,12 @@
         <div class="mt-5 col-md-3">
           <div class="input-group has-validation">
             <span class="input-group-text">Numéro de rue</span>
-            <input type="number" class="form-control" v-model="annonce.adresse.numero" required />
+            <input
+              type="number"
+              class="form-control"
+              v-model="annonce.adresse.numero"
+              required
+            />
             <div class="invalid-feedback">Veuillez remplir ce champs</div>
           </div>
         </div>
@@ -44,7 +64,13 @@
         <div class="mt-5 col-md-7">
           <div class="input-group has-validation">
             <span class="input-group-text">Rue/Voie</span>
-            <input type="text" class="form-control" v-model="annonce.adresse.rue" maxlength="90" required />
+            <input
+              type="text"
+              class="form-control"
+              v-model="annonce.adresse.rue"
+              maxlength="90"
+              required
+            />
             <div class="invalid-feedback">Veuillez remplir ce champs</div>
           </div>
         </div>
@@ -52,7 +78,12 @@
         <div class="mt-5 col-md-3">
           <div class="input-group has-validation">
             <span class="input-group-text">Code postal</span>
-            <input type="number" class="form-control" v-model="annonce.adresse.codePostal" required />
+            <input
+              type="number"
+              class="form-control"
+              v-model="annonce.adresse.codePostal"
+              required
+            />
             <div class="invalid-feedback">Veuillez remplir ce champs</div>
           </div>
         </div>
@@ -60,7 +91,13 @@
         <div class="mt-5 col-md-7">
           <div class="input-group has-validation">
             <span class="input-group-text">Ville</span>
-            <input type="text" class="form-control" v-model="annonce.adresse.ville" maxlength="90" required />
+            <input
+              type="text"
+              class="form-control"
+              v-model="annonce.adresse.ville"
+              maxlength="90"
+              required
+            />
             <div class="invalid-feedback">Veuillez remplir ce champs</div>
           </div>
         </div>
@@ -85,9 +122,17 @@
     </div>
   </div>
   <div v-else>
-    <div class="alert alert-success alert-dismissible fade show w-50 mt-4 d-inline-flex" role="alert">
+    <div
+      class="alert alert-success alert-dismissible fade show w-50 mt-4 d-inline-flex"
+      role="alert"
+    >
       <div>Vous venez de créer une annonce !</div>
-      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+      <button
+        type="button"
+        class="btn-close"
+        data-bs-dismiss="alert"
+        aria-label="Close"
+      ></button>
     </div>
     <div class="card">
       <div class="card-body">
@@ -113,8 +158,13 @@
 
 <script>
 import axios from "axios";
+import CameraComponent from "../components/CameraComponent.vue";
+
 export default {
   name: "CreerAnnonce",
+  components: {
+    CameraComponent,
+  },
   data() {
     return {
       annonce: {
@@ -140,12 +190,13 @@ export default {
       try {
         const response = await axios.post(
           "http://localhost:8080/annonces",
-          this.annonce, {
-          auth: {
-            username: 'admin',
-            password: 'password'
+          this.annonce,
+          {
+            auth: {
+              username: "admin",
+              password: "password",
+            },
           }
-        }
         );
         if (this.selectedPlant !== null) {
           await axios.put(
@@ -156,9 +207,9 @@ export default {
                 "Content-Type": "text/uri-list",
               },
               auth: {
-                username: 'admin',
-                password: 'password'
-              }
+                username: "admin",
+                password: "password",
+              },
             }
           );
         }
@@ -171,9 +222,9 @@ export default {
       try {
         const response = await axios.get("http://localhost:8080/plantes", {
           auth: {
-            username: 'admin',
-            password: 'password'
-          }
+            username: "admin",
+            password: "password",
+          },
         });
         if (
           response.data._embedded.plantes !== null ||
