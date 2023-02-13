@@ -25,7 +25,13 @@ export default {
     fetchAnnonce: async function () {
       try {
         const response = await axios.get(
-          "http://localhost:8080/annonces/" + this.$route.params.id
+          "http://localhost:8080/annonces/" + this.$route.params.id,
+          {
+            auth: {
+              username: "admin",
+              password: "password",
+            },
+          }
         );
         if (response.data !== null || response.data.length) {
           this.annonce = response.data;
@@ -37,7 +43,12 @@ export default {
     },
     fetchPlantes: async function () {
       try {
-        const response = await axios.get(this.annonce._links.plantes.href);
+        const response = await axios.get(this.annonce._links.plantes.href, {
+          auth: {
+            username: "admin",
+            password: "password",
+          },
+        });
         if (
           response.data._embedded.plantes !== null ||
           response.data._embedded.plantes.length

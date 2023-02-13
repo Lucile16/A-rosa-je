@@ -2,8 +2,6 @@ package fr.epsi.server.entities;
 
 import jakarta.persistence.*;
 
-import javax.swing.*;
-import java.io.File;
 import java.util.Set;
 
 @Entity
@@ -40,13 +38,14 @@ public class Plante {
         this.annonces = annonces;
     }
 
-    public Plante(String nom, String photo, String dimension, String exposition, String arrosage, String famille) {
+    public Plante(String nom, String photo, String dimension, String exposition, String arrosage, String famille, String description) {
         this.nom = nom;
         this.photo = photo;
         this.dimension = dimension;
         this.exposition = exposition;
         this.arrosage = arrosage;
         this.famille = famille;
+        this.description = description;
     }
 
     public Integer getId() {

@@ -24,7 +24,7 @@
           </div>
         </div>
 
-        <!-- <div class="col-md-10">
+        <div class="col-md-10">
           <input class="form-control" type="file" id="formFile" />
         </div>
 
@@ -34,7 +34,7 @@
             class="border-primary p-2 w-100"
             :items="annonce.items"
           ></CameraComponent>
-        </div> -->
+        </div>
 
         <div class="mt-5 col-md-10">
           <div class="has-validation">
@@ -170,8 +170,14 @@
 <script>
 import axios from "axios";
 import swal from 'sweetalert';
+
+import CameraComponent from "../components/CameraComponent.vue";
+
 export default {
   name: "CreerAnnonce",
+  components: {
+    CameraComponent,
+  },
   data() {
     return {
       annonce: {
@@ -202,7 +208,13 @@ export default {
       try {
         const response = await axios.post(
           "http://localhost:8080/annonces",
-          this.annonce
+          this.annonce,
+          {
+            auth: {
+              username: "admin",
+              password: "password",
+            },
+          }
         );
         if (this.selectedPlant !== null) {
           await axios.put(
@@ -211,6 +223,10 @@ export default {
             {
               headers: {
                 "Content-Type": "text/uri-list",
+              },
+              auth: {
+                username: "admin",
+                password: "password",
               },
             }
           );
@@ -223,7 +239,12 @@ export default {
     },
     async fetchPlantes() {
       try {
-        const response = await axios.get("http://localhost:8080/plantes");
+        const response = await axios.get("http://localhost:8080/plantes", {
+          auth: {
+            username: "admin",
+            password: "password",
+          },
+        });
         if (
           response.data._embedded.plantes !== null ||
           !response.data._embedded.plantes.length

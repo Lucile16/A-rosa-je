@@ -26,6 +26,13 @@ export default {
   data() {
     return {
       annonces: [],
+      config: {
+        auth: {
+          username: "admin",
+          password: "password",
+        },
+      },
+      access_token: "YWRtaW46cGFzc3dvcmQ",
     };
   },
   created() {
@@ -34,7 +41,12 @@ export default {
   methods: {
     async fetchAnnonces() {
       try {
-        const response = await axios.get("http://localhost:8080/annonces");
+        const response = await axios.get("http://localhost:8080/annonces", {
+          auth: {
+            username: "admin",
+            password: "password",
+          },
+        });
         if (
           response.data._embedded.annonces !== null ||
           response.data._embedded.annonces.length
