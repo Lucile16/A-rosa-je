@@ -30,11 +30,11 @@ CREATE TABLE `annonce` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `annonce` (`id`, `code_postal`, `numero`, `rue`, `ville`, `description`, `etat`, `image`, `titre`, `id_gardien`, `proprietaire_id`) VALUES
-(1,	44400,	10,	'Rue du test',	'Nantes',	'Description de l\'annonce 1',	'ouvert',	NULL,	'My first annonce 1',	NULL,	NULL),
-(2,	44470,	15,	'Rue du testo',	'Carquefou',	'Description 2',	'ouvert',	NULL,	'Annonce 2',	NULL,	NULL),
-(3,	35000,	75,	'Rue du test',	'Rennes',	'Description hey',	'ouvert',	NULL,	'Annonce 3',	NULL,	NULL),
-(4,	49000,	45,	'Rue du testttt',	'Angers',	'Nice description',	'ouvert',	NULL,	'Annonce angers',	NULL,	NULL),
-(5,	44400,	78,	'Rue des tests',	'Nantes',	'Description de Nantes',	'ouvert',	NULL,	'Annonce nantes',	NULL,	NULL);
+(1, 75001, 12, "Rue de la Paix", "Paris", "Je cherche un gardien pour mes plantes d'intérieur", "Disponible", NULL, "Gardien pour mes plantes", NULL, NULL),
+(2, 75016, 15, "Avenue des Ternes", "Paris", "Je suis à la recherche d'un gardien pour mes plantes d'extérieur", "Disponible", NULL, "Gardien pour mes jardins", NULL, NULL),
+(3, 75010, 20, "Rue de Belleville", "Paris", "Je cherche un gardien pour mes cactus", "Disponible", NULL, "Gardien pour mes cactus", NULL, NULL),
+(4, 75017, 25, "Rue de Clichy", "Paris", "Je suis à la recherche d'un gardien pour mes bonsaïs", "Disponible", NULL, "Gardien pour mes bonsaïs", NULL, NULL),
+(5, 75011, 30, "Rue de la Roquette", "Paris", "Je cherche un gardien pour mes orchidées", "Disponible", NULL, "Gardien pour mes orchidées", NULL, NULL);
 
 DROP TABLE IF EXISTS `annonce_plantes`;
 CREATE TABLE `annonce_plantes` (
@@ -79,16 +79,20 @@ CREATE TABLE `plante` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 INSERT INTO `plante` (`id`, `arrosage`, `description`, `dimension`, `exposition`, `famille`, `nom`, `photo`) VALUES
-(1,	'Journalier',	'Ma magnifique plante numéro 1',	'Grande',	'Beaucoup',	'Plante',	'Plante 1',	NULL),
-(2,	'Chaque mois',	'Mon magnifique cactous',	'Petit',	'Beaucup',	'Cactus',	'Cactus 1',	NULL),
-(3,	'Hebdomadaire',	'Quelle belles roses wa',	'Moyen',	'Moyen',	'Rose',	'Rose 1',	NULL),
-(4,	'Hebdomadaire',	'Description',	'Petit-moyen',	'Peu',	'Arbre',	'Arbre 1',	NULL),
-(5,	'Journalier',	'Ma magnifique plante',	'moyen',	'beaucoup',	'plante',	'Plante 2',	NULL),
-(6,	'Journalier',	'Ma magnifique plante numéro 1',	'Moyen',	'Beaucup',	'Plante',	'Plante 3',	NULL),
-(7,	'Hebdomadaire',	'Quelle belles roses wa',	'Moyen',	'Peu',	'Rose',	'Rose 2',	NULL),
-(8,	'Hebdomadaire',	'Ma magnifique plante',	'moyen',	'Moyen',	'Arbre',	'Arbre 2',	NULL),
-(9,	'Chaque mois',	'Ma magnifique plante',	'Petit-moyen',	'Beaucup',	'Arbre',	'Arbre 3',	NULL),
-(10,	'Chaque mois',	'Mon magnifique cactous',	'Petit',	'Beaucup',	'Cactus',	'Cactus 2',	NULL);
+(1, "Une fois par semaine", "Plante grasse facile à entretenir", "Hauteur: 60 cm", "Lumière indirecte", "Cactacées", "Cactus 1", NULL),
+(2, "Deux fois par semaine", "Plante d'intérieur facile à entretenir", "Hauteur: 50 cm", "Lumière indirecte", "Bonsaïs", "Bonsaï 1", NULL),
+(3, "Une fois par jour", "Plante d'intérieur exotique", "Hauteur: 70 cm", "Lumière directe", "Orchidées", "Orchidée 1", NULL),
+(4, "Deux fois par jour", "Plante grasse d'intérieur", "Hauteur: 40 cm", "Lumière indirecte", "Cactacées", "Cactus 2", NULL),
+(5, "Une fois par semaine", "Plante d'intérieur facile à entretenir", "Hauteur: 30 cm", "Lumière indirecte", "Bonsaïs", "Bonsaï 2", NULL),
+(6, "Deux fois par jour", "Plante exotique", "Hauteur: 90 cm", "Lumière directe", "Orchidées", "Orchidée 2", NULL),
+(7, "Une fois par jour", "Plante grasse facile à entretenir", "Hauteur: 60 cm", "Lumière indirecte", "Cactacées", "Cactus 3", NULL),
+(8, "Deux fois par semaine", "Plante d'intérieur facile à entretenir", "Hauteur: 50 cm", "Lumière indirecte", "Bonsaïs", "Bonsaï 3", NULL),
+(9, "Une fois par jour", "Plante exotique", "Hauteur: 70 cm", "Lumière directe", "Orchidées", "Orchidée 3", NULL),
+(10, "Deux fois par semaine", "Plante grasse d'intérieur", "Hauteur: 40 cm", "Lumière indirecte", "Cactacées", "Cactus 4", NULL),
+(11, "Une fois par jour", "Plante d'intérieur facile à entretenir", "Hauteur: 30 cm", "Lumière indirecte", "Bonsaïs", "Bonsaï 4", NULL),
+(12, "Deux fois par semaine", "Plante exotique", "Hauteur: 90 cm", "Lumière directe", "Orchidées", "Orchidée 4", NULL),
+(13, "Une fois par semaine", "Plante grasse facile à entretenir", "Hauteur: 60 cm", "Lumière indirecte", "Cactacées", "Cactus 5", NULL),
+(14, "Deux fois par jour", "Plante d'intérieur facile à entretenir", "Hauteur: 50 cm", "Lumière indirecte", "Bonsaïs", "Bonsaï 5", NULL);
 
 DROP TABLE IF EXISTS `utilisateur`;
 CREATE TABLE `utilisateur` (
