@@ -5,7 +5,7 @@
 <script>
 import PlanteCard from "../components/PlanteComponent.vue";
 import axios from "axios";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 export default {
   name: "DetailsPlante",
   components: {
@@ -35,7 +35,11 @@ export default {
           this.plante = response.data._embedded.plantes[this.$route.params.id];
         }
       } catch (error) {
-        swal("Veuillez nous excuser...", "Une erreur est survenue de notre côté", "error");
+        swal(
+          "Veuillez nous excuser...",
+          "Une erreur est survenue de notre côté",
+          "error"
+        );
         console.log(error);
       }
     },

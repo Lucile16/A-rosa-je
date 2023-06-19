@@ -92,7 +92,8 @@
               id="cp"
               placeholder="44000"
               required
-            /> <!-- checkCP vérifie que l'utilisateur tape un code postal valide -->
+            />
+            <!-- checkCP vérifie que l'utilisateur tape un code postal valide -->
             <div class="invalid-feedback">Veuillez remplir ce champs</div>
           </div>
         </div>
@@ -108,14 +109,20 @@
               placeholder="Nantes"
               onkeydown="return /[a-z]/i.test(event.key)"
               required
-            /> <!-- onkeydown permet à l'utilisateur de taper uniquement des lettres -->
+            />
+            <!-- onkeydown permet à l'utilisateur de taper uniquement des lettres -->
             <div class="invalid-feedback">Veuillez remplir ce champs</div>
           </div>
         </div>
 
         <div class="mt-5 col-md-5">
           <span class="input-group-text">Plante*</span>
-          <select class="form-select" v-model="selectedPlant" placeholder="jkfdljgkl" required>
+          <select
+            class="form-select"
+            v-model="selectedPlant"
+            placeholder="jkfdljgkl"
+            required
+          >
             <option selected disabled value="">Choisissez une plante...</option>
             <option v-for="plante in plantes" :key="plante.id" :value="plante">
               {{ plante.nom }}
@@ -169,7 +176,7 @@
 
 <script>
 import axios from "axios";
-import swal from 'sweetalert';
+import swal from "sweetalert";
 
 import CameraComponent from "../components/CameraComponent.vue";
 
@@ -199,10 +206,14 @@ export default {
     this.fetchPlantes();
   },
   methods: {
-    checkCP(){
+    checkCP() {
       var Reg = new RegExp(/^(([0-8][0-9])|(9[0-5]))[0-9]{3}$/);
-      if(!Reg.test(document.getElementById('cp').value))
-        swal("Erreur de syntaxe !", "Votre code postal ne comporte pas 5 chiffres", "error");
+      if (!Reg.test(document.getElementById("cp").value))
+        swal(
+          "Erreur de syntaxe !",
+          "Votre code postal ne comporte pas 5 chiffres",
+          "error"
+        );
     },
     async submitAnnonce() {
       try {
@@ -233,7 +244,11 @@ export default {
         }
         this.data.push(response.data);
       } catch (error) {
-        swal("Veuillez nous excuser...", "Une erreur est survenue de notre côté", "error");
+        swal(
+          "Veuillez nous excuser...",
+          "Une erreur est survenue de notre côté",
+          "error"
+        );
         console.error(error);
       }
     },
@@ -252,7 +267,11 @@ export default {
           this.plantes = response.data._embedded.plantes;
         }
       } catch (error) {
-        swal("Veuillez nous excuser...", "Une erreur est survenue de notre côté", "error");
+        swal(
+          "Veuillez nous excuser...",
+          "Une erreur est survenue de notre côté",
+          "error"
+        );
         console.error(error);
       }
     },

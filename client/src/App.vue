@@ -23,7 +23,7 @@
     </div>
     <div class="collapse navbar-collapse me-4" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <img src="./assets/img/Fleur.png" height="50" id="fleur" alt="fleur"/>
+        <img src="./assets/img/Fleur.png" height="50" id="fleur" alt="fleur" />
         <li class="nav-item">
           <router-link class="nav-link" to="/">Home</router-link>
         </li>

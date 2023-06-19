@@ -69,8 +69,8 @@ img {
 }
 @media (max-width: 540px) {
   #catalogue {
-    display: flex!important;
-    flex-direction: column!important;
+    display: flex !important;
+    flex-direction: column !important;
     align-items: center;
     margin-bottom: 50px;
   }
